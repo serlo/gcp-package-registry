@@ -1,4 +1,4 @@
-service: gpc-package-registry
+service: gcp-package-registry
 
 provider:
   name: google
@@ -20,3 +20,8 @@ functions:
     handler: resolve
     events:
       - http: path
+
+resources:
+ resources:
+   - type: storage.v1.bucket
+     name: package-registry

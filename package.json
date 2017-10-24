@@ -13,6 +13,9 @@
     "format": "splish-scripts format"
   },
   "dependencies": {
+    "@google-cloud/datastore": "^1.1.0",
+    "@google-cloud/storage": "^1.4.0",
+    "@splish-me/serverless-package-registry": "^1.1.0",
     "serverless-google-cloudfunctions": "^1.1.0"
   },
   "devDependencies": {
