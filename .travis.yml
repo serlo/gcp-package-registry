@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+- '8'
+cache:
+  yarn: true
+  directories:
+  - node_modules
+notifications:
+  email: false
+after_success:
+- CWD=$TRAVIS_BUILD_DIR yarn deploy
+branches:
+  except:
+  - "/^v\\d+\\.\\d+\\.\\d+$/"
+before_install:
+- openssl aes-256-cbc -K $encrypted_92f353705aa7_key -iv $encrypted_92f353705aa7_iv
+  -in keyfile.json.enc -out keyfile.json -d

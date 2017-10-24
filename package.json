@@ -1,14 +1,23 @@
 {
-  "name": "google-nodejs",
-  "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "@serlo-org/gcp-package-registry",
+  "version": "0.0.0-development",
+  "bugs": {
+    "url": "https://github.com/serlo-org/gcp-package-registry/issues"
   },
-  "author": "serverless.com",
-  "license": "MIT",
+  "main": "src/index.js",
+  "repository": "serlo-org/serverless-gcs-registry",
+  "author": "Serlo Education e.V.",
+  "license": "Apache-2.0",
+  "scripts": {
+    "deploy": "serverless deploy",
+    "format": "splish-scripts format"
+  },
   "dependencies": {
     "serverless-google-cloudfunctions": "^1.1.0"
-  }
+  },
+  "devDependencies": {
+    "@splish-me/scripts": "^1.0.3",
+    "serverless": "^1.23.0"
+  },
+  "private": true
 }
