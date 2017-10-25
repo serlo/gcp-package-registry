@@ -36,7 +36,7 @@ exports.resolve = (req, res) => {
 
       const file = bucket.file(fileName);
 
-      return file.get()
+      return file.get();
     })
     .then(([file]) => {
       const readStream = file.createReadStream();

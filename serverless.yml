@@ -4,7 +4,7 @@ provider:
   name: google
   runtime: nodejs
   project: serlo-assets
-  credentials: ${env:CWD}/keyfile.json
+  credentials: ${env:DIR}/keyfile.json
 
 plugins:
   - serverless-google-cloudfunctions

@@ -9,8 +9,13 @@
   "author": "Serlo Education e.V.",
   "license": "Apache-2.0",
   "scripts": {
-    "deploy": "serverless deploy",
-    "format": "splish-scripts format"
+    "deploy": "npm-run-all deploy:*",
+    "deploy:sls": "serverless deploy",
+    "deploy:tls": "terraform apply",
+    "format": "splish-scripts format",
+    "lint": "npm-run-all lint:*",
+    "lint:tf": "terraform validate",
+    "postinstall": "terraform init"
   },
   "dependencies": {
     "@google-cloud/datastore": "^1.1.0",
@@ -20,6 +25,7 @@
   },
   "devDependencies": {
     "@splish-me/scripts": "^1.0.3",
+    "npm-run-all": "^4.1.1",
     "serverless": "^1.23.0"
   },
   "private": true
