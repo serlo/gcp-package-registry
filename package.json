@@ -15,9 +15,9 @@
     "env": "env $(cat .env | xargs)",
     "format": "splish-scripts format",
     "lint": "npm-run-all lint:*",
-    "lint:tf": "terraform validate -check-variables=false",
-    "preview:tf": "yarn env terraform plan",
-    "postinstall": "terraform init"
+    "lint:tf": "terraform validate --check-variables=false",
+    "postinstall": "terraform init",
+    "preview:tf": "yarn env terraform plan"
   },
   "dependencies": {
     "@google-cloud/datastore": "^1.1.0",
