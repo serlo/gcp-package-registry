@@ -9,8 +9,11 @@ notifications:
   email: false
 script:
 - yarn lint
-after_success:
-- yarn deploy
+deploy:
+  provider: script
+  script: yarn deploy
+  on:
+    branch: master
 branches:
   except:
   - "/^v\\d+\\.\\d+\\.\\d+$/"
