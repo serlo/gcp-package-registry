@@ -3,8 +3,9 @@ service: gcp-package-registry
 provider:
   name: google
   runtime: nodejs
-  project: serlo-assets
-  credentials: ${env:DIR}/keyfile.json
+  project: ${env:TF_VAR_project}
+  region: ${env:TF_VAR_region}
+  credentials: ${env:TRAVIS_BUILD_DIR}/keyfile.json
 
 plugins:
   - serverless-google-cloudfunctions
@@ -20,8 +21,3 @@ functions:
     handler: resolve
     events:
       - http: path
-
-resources:
- resources:
-   - type: storage.v1.bucket
-     name: package-registry

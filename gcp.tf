@@ -1,7 +1,19 @@
+variable "project" {}
+variable "region" {}
+variable "bucket" {}
+
 provider "google" {
   version = "~> 1.1"
+
   credentials = "${file("keyfile.json")}"
-  project = "serlo-assets"
-  // Use us-central1 region since Google Cloud Functions aren't supported in European regions, yet
-  region = "us-central1"
+  project = "${var.project}"
+  region = "${var.region}"
+}
+
+resource "google_storage_bucket" "package-registry" {
+  name = "${var.bucket}"
+
+  # Since the storage is only used by GCF, we don't need a multi-regional bucket
+  storage_class = "REGIONAL"
+  location = "${var.region}"
 }

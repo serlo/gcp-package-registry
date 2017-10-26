@@ -10,17 +10,20 @@
   "license": "Apache-2.0",
   "scripts": {
     "deploy": "npm-run-all deploy:*",
-    "deploy:sls": "serverless deploy",
-    "deploy:tls": "terraform apply",
+    "deploy:sls": "yarn env serverless deploy",
+    "deploy:tls": "yarn env terraform apply",
+    "env": "env $(cat .env | xargs)",
     "format": "splish-scripts format",
     "lint": "npm-run-all lint:*",
-    "lint:tf": "terraform validate",
+    "lint:tf": "terraform validate -check-variables=false",
+    "preview:tls": "yarn env terraform plan",
     "postinstall": "terraform init"
   },
   "dependencies": {
     "@google-cloud/datastore": "^1.1.0",
     "@google-cloud/storage": "^1.4.0",
     "@splish-me/serverless-package-registry": "^1.1.0",
+    "dotenv": "^4.0.0",
     "serverless-google-cloudfunctions": "^1.1.0"
   },
   "devDependencies": {
