@@ -1,6 +1,7 @@
 variable "project" {}
 variable "region" {}
 variable "bucket" {}
+variable "tfstate_bucket" {}
 
 variable "cloudflare_email" {}
 variable "cloudflare_token" {}
@@ -14,8 +15,22 @@ provider "google" {
 }
 
 provider "cloudflare" {
+  version = "~> 0.1"
+
   email = "${var.cloudflare_email}"
   token = "${var.cloudflare_token}"
+}
+
+terraform {
+  backend "gcs" {
+    path = "terraform.tfstate"
+  }
+}
+
+resource "google_storage_bucket" "tfstate" {
+  name = "${var.tfstate_bucket}"
+  storage_class = "REGIONAL"
+  location = "${var.region}"
 }
 
 resource "google_storage_bucket" "package-registry" {
