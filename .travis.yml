@@ -15,13 +15,16 @@ branches:
   except:
   - "/^v\\d+\\.\\d+\\.\\d+$/"
 before_install:
-# Decrypt keyfile.json
 - openssl aes-256-cbc -K $encrypted_92f353705aa7_key -iv $encrypted_92f353705aa7_iv
   -in keyfile.json.enc -out keyfile.json -d
-# Install Terraform
 - mkdir -p $HOME/bin
-- wget https://releases.hashicorp.com/terraform/0.10.8/terraform_0.10.8_linux_386.zip -O terraform.zip
+- wget https://releases.hashicorp.com/terraform/0.10.8/terraform_0.10.8_linux_386.zip
+  -O terraform.zip
 - unzip terraform.zip
 - chmod +x terraform
 - mv terraform $HOME/bin
 - export PATH=$HOME/bin:$PATH
+env:
+  global:
+  - secure: afBJymg9aRZLDxZ6hFUPQ3s/Js6N/PAdjHzGyPG2FAX1ET9EFvCNPd5SQ6BDWbWZK5wm0pn+YvpZ/yPHpqCd9pdOmXi1tamXYqz0M/tNy+bz9DA0orM0geMzJlBCy6UbPUr0aJHG2Y7kHp9cvHs+StEtPTboUGCeO33/PZ1uEEjKjrae5ZvydK6X1l3QmikU3bj1m2B+LZH4v2/OiBFnW8JCrsI8a5mr/UQGDcuzPQvrRO+/iwBDiSIZbUfpVbl5gn9NThDyiv8uw/Ux+CkYuOsFFJqAudNBLrs9LRd4EQQCjbk+P6Eq8tFiBTWaaXp8+z+gHiZivryAvy/r70V3QYO9QjYnTrZki89l8i91MSWSVQ3IwWetR/YhmAUo0QEo9zg0da9G8OfrVf5faD2pjKY+MTayo96zOdRVWAxpUeihe7dLpLjCget5jT6DD+OjnL3nlCRFdb2hm3i8i+8P0iiZTP6zUhkM9x1K23aj0jWkfkxQxbGlBJXXM9t/g8P5IBcrtOc1CyDqyJmCu3cINTz0cDrTeycT7ticeBmxOeED2e4UGs+20UTJ1cLG5NdJxHF9Kwe8K+KmLX09Jgf98Xe4X0W0yEInG1tTKmt3dVBlXLJuSZhMw7X5WlTP6tvqhUyKpFXKK++fMTGo7HKfawa30ELo67Z09RoJdTmHFjU=
+  - secure: lvm/cabPgiCe5t2ji40bUMiAMWyuGwgD2iyKi9cEZCmGwDSCtffR2QrqveCSgjL5tWwTpSDCCuW9Q2nJ3+vIskUquE4F+OBqZ5vCRMLwha28Kb3SXW0KO1TqJ6qRaYKK1SbS1BmRQHWsntMQVEq+FhfT2ONT9w5HXg/mzXYeZ5GVu6Ofh7as3JS25Kr9K5D0ufHE0E9snpTHyZFX8b69j1/0vMjFT7L/27S3Lg/ZCE3CkoKnJsg2YPDcPyWUYfBaiLnjvdCsTbpJFYMx3vmAFhWUO+VDiRdfQ91qyiGLtMErdKu0D6ivBcowuQKnBA6R/o1xRnqL/DmWJORghZ5xsx0IljMyDZLo3vMH5tY/cJrMJ9eQI3bbrRS4nC7UD/VDjo7CzwS0xYxGCKdtrhBJve+z+8znbrLtsZ1BQW/DvOeFgBI/1EKCU3EzuWiZFT+Pw1e/JOsdwFTLgXT919SHRQz947QGJ+eo0LxKGl0dnvLPpD7Klxwt/HbpopwX/L/7va9Mb/nprGBlbC/oWJ2bhJhRvnglCh6zPOuqL/yZ5E8zSaGyxAaSy1y3fzuZSZ5Q2jCrHq/LumIMwGBbKuEuerUXg53dRsy13cQQIwuZW0qoSKWQy5XxUIg7GyxzSBjzr+zx4vfESJ5Y4jgz7EdktFI6dwiMX8A+WcpeVHMoMtA=

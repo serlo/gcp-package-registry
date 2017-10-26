@@ -11,12 +11,12 @@
   "scripts": {
     "deploy": "npm-run-all deploy:*",
     "deploy:sls": "yarn env serverless deploy",
-    "deploy:tls": "yarn env terraform apply",
+    "deploy:tf": "yarn env terraform apply",
     "env": "env $(cat .env | xargs)",
     "format": "splish-scripts format",
     "lint": "npm-run-all lint:*",
     "lint:tf": "terraform validate -check-variables=false",
-    "preview:tls": "yarn env terraform plan",
+    "preview:tf": "yarn env terraform plan",
     "postinstall": "terraform init"
   },
   "dependencies": {
