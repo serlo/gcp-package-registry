@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config();
 const datastore = require('@google-cloud/datastore')();
 const storage = require('@google-cloud/storage')();
 const { RequestResolver } = require('@splish-me/serverless-package-registry');
