@@ -10,7 +10,7 @@ notifications:
 script:
 - yarn lint
 after_success:
-- DIR=$TRAVIS_BUILD_DIR yarn deploy
+- yarn deploy
 branches:
   except:
   - "/^v\\d+\\.\\d+\\.\\d+$/"

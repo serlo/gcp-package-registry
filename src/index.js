@@ -1,3 +1,4 @@
+require('dotenv').config()
 const datastore = require('@google-cloud/datastore')();
 const storage = require('@google-cloud/storage')();
 const { RequestResolver } = require('@splish-me/serverless-package-registry');
@@ -11,7 +12,7 @@ const getVersions = packageName => {
 
 const resolver = new RequestResolver({ getVersions });
 
-const bucket = storage.bucket('package-registry');
+const bucket = storage.bucket(process.env.TF_VAR_bucket);
 
 exports.resolve = (req, res) => {
   const { path } = req;
