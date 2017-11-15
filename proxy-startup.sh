@@ -7,6 +7,7 @@ server {
     server_name package-registry.serlo.org;
 
     location / {
+        add_header Access-Control-Allow-Origin *;
         proxy_pass https://us-central1-serlo-assets.cloudfunctions.net/resolve/;
     }
 }
